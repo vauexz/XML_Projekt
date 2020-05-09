@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="CSS/biblioteka.css" ?>
 <biblioteka>
     <czytelnicy>
         <czytelnik id="Cx_7252Fd">
@@ -160,49 +161,49 @@
             <ksiazka_id>K_31a11</ksiazka_id>
             <czytelnik_id>Cd_1341Po</czytelnik_id>
             <data_wypozyczenia>2020-02-12</data_wypozyczenia>
-            <data_do>2020-03-15</data_wypozyczenia>
+            <data_do>2020-03-15</data_do>
             <data_zwrotu>2020-03-01</data_zwrotu>
         </wypozyczenie>
         <wypozyczenie>
             <ksiazka_id>K_22l18</ksiazka_id>
             <czytelnik_id>Cx_7252Fd</czytelnik_id>
             <data_wypozyczenia>2020-02-26</data_wypozyczenia>
-            <data_do>2020-03-27</data_wypozyczenia>
+            <data_do>2020-03-27</data_do>
             <data_zwrotu>2020-03-22</data_zwrotu>
         </wypozyczenie>
         <wypozyczenie>
             <ksiazka_id>K_92z11</ksiazka_id>
             <czytelnik_id>Cx_9241Jl</czytelnik_id>
             <data_wypozyczenia>2020-03-14</data_wypozyczenia>
-            <data_do>2020-04-15</data_wypozyczenia>
+            <data_do>2020-04-15</data_do>
             <data_zwrotu>2020-03-29</data_zwrotu>
         </wypozyczenie>
         <wypozyczenie>
             <ksiazka_id>K_10s02</ksiazka_id>
             <czytelnik_id>Cp_6204Ad</czytelnik_id>
             <data_wypozyczenia>2020-03-22</data_wypozyczenia>
-            <data_do>2020-04-23</data_wypozyczenia>
+            <data_do>2020-04-23</data_do>
             <data_zwrotu>2020-04-08</data_zwrotu>
         </wypozyczenie>
         <wypozyczenie>
             <ksiazka_id>K_78w89</ksiazka_id>
             <czytelnik_id>Cq_8351Ol</czytelnik_id>
             <data_wypozyczenia>2020-03-30</data_wypozyczenia>
-            <data_do>2020-05-01</data_wypozyczenia>
+            <data_do>2020-05-01</data_do>
         </wypozyczenie>
         <wypozyczenie>
             <ksiazka_id>K_78w89</ksiazka_id>
             <czytelnik_id>Cl_1724De</czytelnik_id>
             <data_wypozyczenia>2020-04-05</data_wypozyczenia>
-            <data_do>2020-05-05</data_wypozyczenia>
+            <data_do>2020-05-05</data_do>
             <data_zwrotu>2020-04-28</data_zwrotu>
         </wypozyczenie>
         <wypozyczenie>
             <ksiazka_id>K_31a11</ksiazka_id>
             <czytelnik_id>Cr_7151Kd</czytelnik_id>
             <data_wypozyczenia>2020-05-01</data_wypozyczenia>
-            <data_do>2020-06-01</data_wypozyczenia>
+            <data_do>2020-06-01</data_do>
             <data_zwrotu>2020-05-8</data_zwrotu>
         </wypozyczenie>
     </wypozyczenia>
-</biblioteka
+</biblioteka>
