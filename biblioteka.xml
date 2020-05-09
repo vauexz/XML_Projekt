@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<biblioteka>
+    <czytelnicy>
+        <czytelnik id="Cx_7252Fd">
+            <imie plec="m">Jan</imie>
+            <nazwisko>Nowak</nazwisko>
+            <adres>
+                <miasto kod_pocztowy="80-017">Gdańsk</miasto>
+                <ulica>Kwiatowa</ulica>
+                <nr_domu>10</nr_domu>
+                <nr_mieszkania>1</nr_mieszkania>
+            </adres>
+            <kontakt>
+                <email>jannowak@example.com</email>
+                <telefon>123456789</telefon>
+            </kontakt>
+            <data_urodzenia>1999-02-01</data_urodzenia>
+        </czytelnik>
+        <czytelnik id="Cd_1341Po">
+            <imie plec="m">Kacper</imie>
+            <nazwisko>Krzak</nazwisko>
+            <adres>
+                <miasto kod_pocztowy="80-077">Gdańsk</miasto>
+                <ulica>Łąkowa</ulica>
+                <nr_domu>4</nr_domu>
+            </adres>
+            <kontakt>
+                <email>kkrzakk@example.com</email>
+                <telefon>111321421</telefon>
+            </kontakt>
+            <data_urodzenia>1998-12-12</data_urodzenia>
+        </czytelnik>
+        <czytelnik id="Cx_9241Jl">
+            <imie plec="k">Kamila</imie>
+            <nazwisko>Chmura</nazwisko>
+            <adres>
+                <miasto kod_pocztowy="80-033">Gdańsk</miasto>
+                <ulica>Polna</ulica>
+                <nr_domu>33</nr_domu>
+                <nr_mieszkania>22</nr_mieszkania>
+            </adres>
+            <kontakt>
+                <email>kamilachh@example.com</email>
+                <telefon>928625142</telefon>
+            </kontakt>
+            <data_urodzenia>1988-05-23</data_urodzenia>
+        </czytelnik>
+        <czytelnik id="Cp_6204Ad">
+            <imie plec="k">Janina</imie>
+            <nazwisko>Kowalska</nazwisko>
+            <adres>
+                <miasto kod_pocztowy="80-041">Gdańsk</miasto>
+                <ulica>Nowa</ulica>
+                <nr_domu>10</nr_domu>
+            </adres>
+            <kontakt>
+                <email>janina@mail.com</email>
+                <telefon>333333333</telefon>
+            </kontakt>
+            <data_urodzenia>2001-01-13</data_urodzenia>
+        </czytelnik>
+        <czytelnik id="Cq_8351Ol">
+            <imie plec="k">Karolina</imie>
+            <nazwisko>Iks</nazwisko>
+            <adres>
+                <miasto kod_pocztowy="80-066">Gdańsk</miasto>
+                <ulica>Stara</ulica>
+                <nr_domu>33</nr_domu>
+                <nr_mieszkania>22</nr_mieszkania>
+            </adres>
+            <kontakt>
+                <email>karolinaX@gmail.com</email>
+                <telefon>826154912</telefon>
+            </kontakt>
+            <data_urodzenia>1993-10-13</data_urodzenia>
+        </czytelnik>
+        <czytelnik id="Cr_7151Kd">
+            <imie plec="m">Łukasz</imie>
+            <nazwisko>Mak</nazwisko>
+            <adres>
+                <miasto kod_pocztowy="80-026">Gdańsk</miasto>
+                <ulica>Deszczowa</ulica>
+                <nr_domu>2</nr_domu>
+                <nr_mieszkania>1</nr_mieszkania>
+            </adres>
+            <kontakt>
+                <email>lmak@gmail.com</email>
+                <telefon>726142036</telefon>
+            </kontakt>
+            <data_urodzenia>1997-10-13</data_urodzenia>
+        </czytelnik>
+        <czytelnik id="Cl_1724De">
+            <imie plec="m">Marcin</imie>
+            <nazwisko>Mak</nazwisko>
+            <adres>
+                <miasto kod_pocztowy="80-026">Gdańsk</miasto>
+                <ulica>Deszczowa</ulica>
+                <nr_domu>2</nr_domu>
+                <nr_mieszkania>1</nr_mieszkania>
+            </adres>
+            <kontakt>
+                <email>mmak@gmail.com</email>
+                <telefon>624102913</telefon>
+            </kontakt>
+            <data_urodzenia>1999-04-03</data_urodzenia>
+        </czytelnik>
+    </czytelnicy>
+    <ksiazki>
+        <ksiazka id="K_22l18">
+            <tytul>Błyski</tytul>
+            <autor>Julia Hartwig</autor>
+            <rok_wydania>2015</rok_wydania>
+            <liczba_stron>98</liczba_stron>
+            <wydawnictwo>Sic</wydawnictwo>
+            <kategoria>Poezja</kategoria>
+        </ksiazka>
+        <ksiazka id="K_31a11">
+            <tytul>Był sobie pies</tytul>
+            <autor>W. Bruce Cameron</autor>
+            <rok_wydania>2017</rok_wydania>
+            <liczba_stron>392</liczba_stron>
+            <wydawnictwo>Kobiece</wydawnictwo>
+            <kategoria>Przygodowa</kategoria>
+        </ksiazka>
+        <ksiazka id="K_92z11">
+            <tytul>Uśpione morderstwo</tytul>
+            <autor>Agatha Christie</autor>
+            <rok_wydania>2019</rok_wydania>
+            <liczba_stron>200</liczba_stron>
+            <wydawnictwo>Wydawnictwo Dolnośląskie</wydawnictwo>
+            <kategoria>Kryminał</kategoria>
+        </ksiazka>
+        <ksiazka id="K_10s02">
+            <tytul>Szatan z siódmej klasy</tytul>
+            <autor>Kornel Makuszyński</autor>
+            <rok_wydania>2017</rok_wydania>
+            <liczba_stron>280</liczba_stron>
+            <wydawnictwo>Nasza Księgarnia</wydawnictwo>
+            <kategoria>Przygodowa</kategoria>
+        </ksiazka>
+        <ksiazka id="K_78w89">
+            <tytul>Upadły anioł</tytul>
+            <autor>Mari Jungstedt</autor>
+            <rok_wydania>1016</rok_wydania>
+            <liczba_stron>270</liczba_stron>
+            <wydawnictwo>Edipresse Polska</wydawnictwo>
+            <kategoria>Kryminał</kategoria>
+        </ksiazka>
+        <ksiazka id="K_78w91">
+            <tytul>Carrie</tytul>
+            <autor>Stephen King</autor>
+            <rok_wydania>2017</rok_wydania>
+            <liczba_stron>216</liczba_stron>
+            <wydawnictwo>Albatros</wydawnictwo>
+            <kategoria>Horror</kategoria>
+        </ksiazka>
+    </ksiazki>
+    <wypozyczenia>
+        <wypozyczenie>
+            <ksiazka_id>K_31a11</ksiazka_id>
+            <czytelnik_id>Cd_1341Po</czytelnik_id>
+            <data_wypozyczenia>2020-02-12</data_wypozyczenia>
+            <data_do>2020-03-15</data_wypozyczenia>
+            <data_zwrotu>2020-03-01</data_zwrotu>
+        </wypozyczenie>
+        <wypozyczenie>
+            <ksiazka_id>K_22l18</ksiazka_id>
+            <czytelnik_id>Cx_7252Fd</czytelnik_id>
+            <data_wypozyczenia>2020-02-26</data_wypozyczenia>
+            <data_do>2020-03-27</data_wypozyczenia>
+            <data_zwrotu>2020-03-22</data_zwrotu>
+        </wypozyczenie>
+        <wypozyczenie>
+            <ksiazka_id>K_92z11</ksiazka_id>
+            <czytelnik_id>Cx_9241Jl</czytelnik_id>
+            <data_wypozyczenia>2020-03-14</data_wypozyczenia>
+            <data_do>2020-04-15</data_wypozyczenia>
+            <data_zwrotu>2020-03-29</data_zwrotu>
+        </wypozyczenie>
+        <wypozyczenie>
+            <ksiazka_id>K_10s02</ksiazka_id>
+            <czytelnik_id>Cp_6204Ad</czytelnik_id>
+            <data_wypozyczenia>2020-03-22</data_wypozyczenia>
+            <data_do>2020-04-23</data_wypozyczenia>
+            <data_zwrotu>2020-04-08</data_zwrotu>
+        </wypozyczenie>
+        <wypozyczenie>
+            <ksiazka_id>K_78w89</ksiazka_id>
+            <czytelnik_id>Cq_8351Ol</czytelnik_id>
+            <data_wypozyczenia>2020-03-30</data_wypozyczenia>
+            <data_do>2020-05-01</data_wypozyczenia>
+        </wypozyczenie>
+        <wypozyczenie>
+            <ksiazka_id>K_78w89</ksiazka_id>
+            <czytelnik_id>Cl_1724De</czytelnik_id>
+            <data_wypozyczenia>2020-04-05</data_wypozyczenia>
+            <data_do>2020-05-05</data_wypozyczenia>
+            <data_zwrotu>2020-04-28</data_zwrotu>
+        </wypozyczenie>
+        <wypozyczenie>
+            <ksiazka_id>K_31a11</ksiazka_id>
+            <czytelnik_id>Cr_7151Kd</czytelnik_id>
+            <data_wypozyczenia>2020-05-01</data_wypozyczenia>
+            <data_do>2020-06-01</data_wypozyczenia>
+            <data_zwrotu>2020-05-8</data_zwrotu>
+        </wypozyczenie>
+    </wypozyczenia>
+</biblioteka
