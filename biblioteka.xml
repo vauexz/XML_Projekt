@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/css" href="CSS/biblioteka.css" ?>
+<!DOCTYPE biblioteka SYSTEM "biblioteka.dtd">
 <biblioteka>
     <czytelnicy>
         <czytelnik id="Cx_7252Fd">
@@ -131,6 +131,15 @@
             <wydawnictwo>Wydawnictwo Dolnośląskie</wydawnictwo>
             <kategoria>Kryminał</kategoria>
         </ksiazka>
+        <ksiazka id="K_02h25">
+            <tytul>Opowiadania</tytul>
+            <autor>Jan Kowalski</autor>
+            <autor>Joanna B.</autor>
+            <rok_wydania>2001</rok_wydania>
+            <liczba_stron>99</liczba_stron>
+            <wydawnictwo>Zielono</wydawnictwo>
+            <kategoria>Opowiadania</kategoria>
+        </ksiazka>
         <ksiazka id="K_10s02">
             <tytul>Szatan z siódmej klasy</tytul>
             <autor>Kornel Makuszyński</autor>
@@ -157,50 +166,36 @@
         </ksiazka>
     </ksiazki>
     <wypozyczenia>
-        <wypozyczenie>
-            <ksiazka_id>K_31a11</ksiazka_id>
-            <czytelnik_id>Cd_1341Po</czytelnik_id>
+        <wypozyczenie ksiazka_id="K_31a11" czytelnik_id="Cd_1341Po">
             <data_wypozyczenia>2020-02-12</data_wypozyczenia>
             <data_do>2020-03-15</data_do>
             <data_zwrotu>2020-03-01</data_zwrotu>
         </wypozyczenie>
-        <wypozyczenie>
-            <ksiazka_id>K_22l18</ksiazka_id>
-            <czytelnik_id>Cx_7252Fd</czytelnik_id>
+        <wypozyczenie ksiazka_id="K_22l18" czytelnik_id="Cx_7252Fd">
             <data_wypozyczenia>2020-02-26</data_wypozyczenia>
             <data_do>2020-03-27</data_do>
             <data_zwrotu>2020-03-22</data_zwrotu>
         </wypozyczenie>
-        <wypozyczenie>
-            <ksiazka_id>K_92z11</ksiazka_id>
-            <czytelnik_id>Cx_9241Jl</czytelnik_id>
+        <wypozyczenie ksiazka_id="K_92z11" czytelnik_id="Cx_9241Jl">
             <data_wypozyczenia>2020-03-14</data_wypozyczenia>
             <data_do>2020-04-15</data_do>
             <data_zwrotu>2020-03-29</data_zwrotu>
         </wypozyczenie>
-        <wypozyczenie>
-            <ksiazka_id>K_10s02</ksiazka_id>
-            <czytelnik_id>Cp_6204Ad</czytelnik_id>
+        <wypozyczenie ksiazka_id="K_10s02" czytelnik_id="Cp_6204Ad">
             <data_wypozyczenia>2020-03-22</data_wypozyczenia>
             <data_do>2020-04-23</data_do>
             <data_zwrotu>2020-04-08</data_zwrotu>
         </wypozyczenie>
-        <wypozyczenie>
-            <ksiazka_id>K_78w89</ksiazka_id>
-            <czytelnik_id>Cq_8351Ol</czytelnik_id>
+        <wypozyczenie ksiazka_id="K_78w89" czytelnik_id="Cq_8351Ol">
             <data_wypozyczenia>2020-03-30</data_wypozyczenia>
             <data_do>2020-05-01</data_do>
         </wypozyczenie>
-        <wypozyczenie>
-            <ksiazka_id>K_78w89</ksiazka_id>
-            <czytelnik_id>Cl_1724De</czytelnik_id>
+        <wypozyczenie ksiazka_id="K_78w89" czytelnik_id="Cl_1724De">
             <data_wypozyczenia>2020-04-05</data_wypozyczenia>
             <data_do>2020-05-05</data_do>
             <data_zwrotu>2020-04-28</data_zwrotu>
         </wypozyczenie>
-        <wypozyczenie>
-            <ksiazka_id>K_31a11</ksiazka_id>
-            <czytelnik_id>Cr_7151Kd</czytelnik_id>
+        <wypozyczenie ksiazka_id="K_31a11" czytelnik_id="Cr_7151Kd">
             <data_wypozyczenia>2020-05-01</data_wypozyczenia>
             <data_do>2020-06-01</data_do>
             <data_zwrotu>2020-05-8</data_zwrotu>
