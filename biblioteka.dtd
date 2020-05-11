@@ -1,5 +1,5 @@
 <!ELEMENT biblioteka (czytelnicy, ksiazki, wypozyczenia)>
-    <!ELEMENT czytelnicy (czytelnik*)>
+    <!ELEMENT czytelnicy (czytelnik+)>
         <!ELEMENT czytelnik (imie, nazwisko, adres, kontakt, data_urodzenia)>
             <!ATTLIST czytelnik id ID #REQUIRED>
             <!ELEMENT imie (#PCDATA)>
@@ -16,7 +16,7 @@
                 <!ELEMENT telefon (#PCDATA)>
             <!ELEMENT data_urodzenia (#PCDATA)>
             
-    <!ELEMENT ksiazki (ksiazka*)>
+    <!ELEMENT ksiazki (ksiazka+)>
         <!ELEMENT ksiazka (tytul, autor+, rok_wydania, liczba_stron, wydawnictwo, kategoria)>
             <!ATTLIST ksiazka id ID #REQUIRED>
             <!ELEMENT tytul (#PCDATA)>
@@ -33,4 +33,3 @@
             <!ELEMENT data_wypozyczenia (#PCDATA)>
             <!ELEMENT data_do (#PCDATA)>
             <!ELEMENT data_zwrotu (#PCDATA)>
-            
