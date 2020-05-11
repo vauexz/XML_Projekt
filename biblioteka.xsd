@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:simpleType name="t_czytelnikID">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="C[a-z]_\d{4}[A-Z][a-z]"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="t_ksiazkaID">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="K_\d{2}[a-z]\d{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="t_email">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\w+@\w+\.\w+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="t_telefon">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{9,11}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="t_plec">
+      <xs:restriction base="xs:string">
+          <xs:enumeration value="m"/>
+          <xs:enumeration value="k"/>
+      </xs:restriction>
+   </xs:simpleType>
+
+    <xs:simpleType name="t_kod_pocztowy">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{2}-\d{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="t_kategoria">
+      <xs:restriction base="xs:string">
+          <xs:enumeration value="Kryminał"/>
+          <xs:enumeration value="Horror"/>
+          <xs:enumeration value="Przygodowe"/>
+          <xs:enumeration value="Opowiadania"/>
+          <xs:enumeration value="Poezja"/>
+          <xs:enumeration value="Historyczne"/>
+      </xs:restriction>
+   </xs:simpleType>
+
+    <xs:simpleType name="liczba_dodatnia">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="t_imie">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="plec" type="t_plec"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="t_miasto">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="kod_pocztowy" type="t_kod_pocztowy"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="t_adres">
+        <xs:sequence>
+            <xs:element name="miasto" type="t_miasto"/>
+            <xs:element name="ulica" type="t_miasto"/>
+            <xs:element name="nr_domu" type="liczba_dodatnia"/>
+            <xs:element name="nr_mieszkania" type="liczba_dodatnia" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+     <xs:complexType name="t_kontakt">
+        <xs:sequence>
+            <xs:element name="email" type="t_email"/>
+            <xs:element name="telefon" type="t_telefon"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="t_czytelnik">
+        <xs:sequence>
+            <xs:element name="imie" type="t_imie"/>
+            <xs:element name="nazwisko" type="xs:string"/>
+            <xs:element name="adres" type="t_adres"/>
+            <xs:element name="kontakt" type="t_kontakt"/>
+            <xs:element name="data_urodzenia" type="xs:date"/>
+        </xs:sequence>
+            <xs:attribute name="id" type="t_czytelnikID"/>
+    </xs:complexType>
+
+    <xs:complexType name="t_czytelnicy">
+        <xs:sequence>
+            <xs:element name="czytelnik" type="t_czytelnik" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="t_ksiazka">
+        <xs:sequence>
+            <xs:element name="tytul" type="xs:string"/>
+            <xs:element name="autor" type="xs:string" minOccurs="1" maxOccurs="10"/>
+            <xs:element name="rok_wydania" type="liczba_dodatnia"/>
+            <xs:element name="liczba_stron" type="liczba_dodatnia"/>
+            <xs:element name="wydawnictwo" type="xs:string"/>
+            <xs:element name="kategoria" type="t_kategoria"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="t_ksiazkaID"/>
+    </xs:complexType>
+
+    <xs:complexType name="t_ksiazki">
+        <xs:sequence>
+            <xs:element name="ksiazka" type="t_ksiazka" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="t_wypozyczenie">
+        <xs:sequence>
+            <xs:element name="data_wypozyczenia" type="xs:date"/>
+            <xs:element name="data_do" type="xs:date"/>
+            <xs:element name="data_zwrotu" type="xs:date" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="ksiazka_id" type="t_ksiazkaID"/>
+        <xs:attribute name="czytelnik_id" type="t_czytelnikID"/>
+    </xs:complexType>
+
+    <xs:complexType name="t_wypozyczenia">
+        <xs:sequence>
+            <xs:element name="wypozyczenie" type="t_wypozyczenie" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="t_biblioteka">
+        <xs:sequence>
+            <xs:element name="czytelnicy" type="t_czytelnicy"/>
+            <xs:element name="ksiazki" type="t_ksiazki"/>
+            <xs:element name="wypozyczenia" type="t_wypozyczenia"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="biblioteka" type="t_biblioteka"/>
+
+</xs:schema>
