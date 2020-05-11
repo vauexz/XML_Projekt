@@ -146,6 +146,26 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:element name="biblioteka" type="t_biblioteka"/>
+    <xs:element name="biblioteka" type="t_biblioteka">
+        <xs:key name="idCzytelnik">
+            <xs:selector xpath="czytelnicy/czytelnik"/>
+            <xs:field xpath="@id"/>
+        </xs:key>
+
+        <xs:keyref name="idCzytelnikRef" refer="idCzytelnik">
+            <xs:selector xpath="wypozyczenia/wypozyczenie"/>
+            <xs:field xpath="@czytelnik_id"/>
+        </xs:keyref>
+
+        <xs:key name="idKsiazka">
+            <xs:selector xpath="ksiazki/ksiazka"/>
+            <xs:field xpath="@id"/>
+        </xs:key>
+
+        <xs:keyref name="idKsiazkaRef" refer="idKsiazka">
+            <xs:selector xpath="wypozyczenia/wypozyczenie"/>
+            <xs:field xpath="@ksiazka_id"/>
+        </xs:keyref>
+    </xs:element>
 
 </xs:schema>
