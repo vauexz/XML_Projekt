@@ -146,7 +146,7 @@
             <rok_wydania>2017</rok_wydania>
             <liczba_stron>280</liczba_stron>
             <wydawnictwo>Nasza Księgarnia</wydawnictwo>
-            <kategoria>Przygodowa</kategoria>
+            <kategoria>Przygodowe</kategoria>
         </ksiazka>
         <ksiazka id="K_78w89">
             <tytul>Upadły anioł</tytul>
@@ -198,7 +198,7 @@
         <wypozyczenie ksiazka_id="K_31a11" czytelnik_id="Cr_7151Kd">
             <data_wypozyczenia>2020-05-01</data_wypozyczenia>
             <data_do>2020-06-01</data_do>
-            <data_zwrotu>2020-05-8</data_zwrotu>
+            <data_zwrotu>2020-05-08</data_zwrotu>
         </wypozyczenie>
     </wypozyczenia>
 </biblioteka>
