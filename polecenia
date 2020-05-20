@@ -1,0 +1,8 @@
+Walidacja XML względem dołączonego DTD
+    xmllint --valid biblioteka.xml --noout
+
+Walidacja XML względem XSD
+    xmllint --schema biblioteka.xsd biblioteka.xml --noout
+
+Transformacja XSLT
+    xsltproc  biblioteka.xsl biblioteka.xml > xslt_biblioteka.html
