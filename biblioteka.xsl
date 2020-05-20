@@ -218,52 +218,7 @@
                         </xsl:element>
                     </xsl:element>
                 </xsl:for-each>
-                
-            
             </xsl:element>
-
-            <!--
-                    <xsl:element name="div">
-                            <xsl:variable name="ksiazka_id">
-                                <xsl:value-of select="@ksiazka_id"/>
-                            </xsl:variable>
-                            <xsl:variable name="czytelnik_id">
-                                <xsl:value-of select="@czytelnik_id"/>
-                            </xsl:variable>
-
-                        <xsl:element name="span">
-                            <xsl:attribute name="class">
-                                <xsl:text>data</xsl:text>
-                            </xsl:attribute>
-                            <xsl:value-of select="data_wypozyczenia"/>
-                            <xsl:text>&#160;</xsl:text>
-                        </xsl:element>
-
-                        <xsl:element name="span">
-                            <xsl:attribute name="class">
-                                <xsl:text>osoba</xsl:text>
-                            </xsl:attribute>
-                            <xsl:value-of select="/biblioteka/czytelnicy/czytelnik[@id=$czytelnik_id]/imie"/>
-                            <xsl:text>&#160;</xsl:text>
-                            <xsl:value-of select="/biblioteka/czytelnicy/czytelnik[@id=$czytelnik_id]/nazwisko"/>
-                            <xsl:text>&#160;</xsl:text>
-                        </xsl:element>
-                        <xsl:text>&#xa;</xsl:text>
-                        
-
-                        <xsl:element name="span">
-                            <xsl:attribute name="class">
-                                <xsl:text>osoba</xsl:text>
-                            </xsl:attribute>
-                            <xsl:text>&apos;&apos;</xsl:text>
-                            <xsl:value-of select="/biblioteka/ksiazki/ksiazka[@id=$ksiazka_id]/tytul"/>
-                            <xsl:text>&apos;&apos;</xsl:text>
-                            <xsl:text>&#160;</xsl:text>
-                        </xsl:element>
-                        <xsl:text>&#xa;</xsl:text>
-
-                    </xsl:element>
--->
         </xsl:element>
     </xsl:template>
 
