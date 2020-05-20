@@ -160,8 +160,69 @@
             <xsl:attribute name="class">
                 <xsl:text>wypozyczenia</xsl:text>
             </xsl:attribute>
+            <xsl:element name="table">
+                <xsl:element name="tr">
+                    <xsl:element name="th">Data wypozyczenia</xsl:element>
+                    <xsl:element name="th">Zwrot do</xsl:element>
+                    <xsl:element name="th">Data zwrotu</xsl:element>
+                    <xsl:element name="th">Osoba(id)</xsl:element>
+                    <xsl:element name="th">Książka(id)</xsl:element>
+                </xsl:element>
                 <xsl:for-each select="wypozyczenie">
                 <xsl:sort select="data_wypozyczenia"/>
+                    <xsl:variable name="czytelnik_id" select="@czytelnik_id"/>
+                    <xsl:variable name="ksiazka_id" select="@ksiazka_id"/>
+
+                    <xsl:element name="tr">
+                        <xsl:element name="tr">
+                            <xsl:attribute name="class">
+                                <xsl:choose>
+                                    <xsl:when test="(data_zwrotu)">oddana</xsl:when>
+                                    <xsl:otherwise>nieoddana</xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:attribute>
+                            <xsl:element name="td">
+                                <xsl:value-of select="data_wypozyczenia"/>
+                            </xsl:element>
+
+                            <xsl:element name="td">
+                                <xsl:value-of select="data_do"/>
+                            </xsl:element>
+
+                            <xsl:element name="td">
+                                <xsl:if test="(data_zwrotu)">
+                                    <xsl:value-of select="data_zwrotu"/>
+                                </xsl:if>
+                            </xsl:element>
+
+                            <xsl:element name="td">
+                                <xsl:value-of select="/biblioteka/czytelnicy/czytelnik[@id=$czytelnik_id]/imie"/>
+                                <xsl:text>&#160;</xsl:text>
+                                <xsl:value-of select="/biblioteka/czytelnicy/czytelnik[@id=$czytelnik_id]/nazwisko"/>
+                                <xsl:element name="b">
+                                    <xsl:text> (</xsl:text>
+                                    <xsl:value-of select="$czytelnik_id"/>
+                                    <xsl:text>) </xsl:text>
+                                </xsl:element>
+                            </xsl:element>
+
+                            <xsl:element name="td">
+                                <xsl:value-of select="/biblioteka/ksiazki/ksiazka[@id=$ksiazka_id]/tytul"/>
+                                <xsl:element name="b">
+                                    <xsl:text> (</xsl:text>
+                                    <xsl:value-of select="$ksiazka_id"/>
+                                    <xsl:text>) </xsl:text>
+                                </xsl:element>
+                            </xsl:element>
+
+                        </xsl:element>
+                    </xsl:element>
+                </xsl:for-each>
+                
+            
+            </xsl:element>
+
+            <!--
                     <xsl:element name="div">
                             <xsl:variable name="ksiazka_id">
                                 <xsl:value-of select="@ksiazka_id"/>
@@ -201,28 +262,8 @@
                         </xsl:element>
                         <xsl:text>&#xa;</xsl:text>
 
-                        <xsl:element name="span">
-                            <xsl:choose>
-                                <xsl:when test="not(data_zwrotu)">
-                                    <xsl:attribute name="class">
-                                        <xsl:text>nieoddana</xsl:text>
-                                    </xsl:attribute>
-                                    <xsl:text>nieoddana</xsl:text>
-                                </xsl:when>
-                                
-                                <xsl:otherwise>
-                                    <xsl:attribute name="class">
-                                        <xsl:text>oddana</xsl:text>
-                                    </xsl:attribute>
-                                    <xsl:text>oddana</xsl:text>
-                                </xsl:otherwise>
-
-                            </xsl:choose>
-                        </xsl:element>
-                        <xsl:text>&#xa;</xsl:text>
-
                     </xsl:element>
-                </xsl:for-each>
+-->
         </xsl:element>
     </xsl:template>
 
