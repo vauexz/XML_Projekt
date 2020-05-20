@@ -61,6 +61,27 @@
                     </xsl:element>
                     <xsl:text>&#xa;</xsl:text>
                     <xsl:element name="hr"/>
+
+                    <xsl:element name="div">
+                        <xsl:attribute name="class">
+                            <xsl:text>kontakt</xsl:text>
+                        </xsl:attribute>
+                        <xsl:apply-templates select="kontakt"/>
+                    </xsl:element>
+                    <xsl:text>&#xa;</xsl:text>
+                    <xsl:element name="hr"/>
+
+                    <xsl:element name="div">
+                        <xsl:attribute name="class">
+                            <xsl:text>suma_wypozyczen</xsl:text>
+                        </xsl:attribute>
+                        <xsl:text>Wypożyczonych książek: </xsl:text>
+                        <xsl:variable name="id">
+                            <xsl:value-of select="@id"/>
+                        </xsl:variable>
+                        <xsl:value-of select="count(/biblioteka/wypozyczenia/wypozyczenie[@czytelnik_id=$id])"/>
+                    </xsl:element>
+                    <xsl:text>&#xa;</xsl:text>
                 
                 </xsl:element>
                 <xsl:text>&#xa;</xsl:text>
@@ -81,6 +102,14 @@
             <xsl:text>&#160;/&#160;</xsl:text>
             <xsl:value-of select="nr_mieszkania"/>
         </xsl:if>
+    </xsl:template>
+    
+    <xsl:template match="kontakt">
+        <xsl:text>email: </xsl:text>
+        <xsl:value-of select="email"/>
+        <xsl:element name="br"/>
+        <xsl:text>telefon: </xsl:text>
+        <xsl:value-of select="telefon"/>
     </xsl:template>
 
     <xsl:template match="ksiazki">
