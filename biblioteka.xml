@@ -89,6 +89,20 @@
             </kontakt>
             <data_urodzenia>1993-10-13</data_urodzenia>
         </czytelnik>
+        <czytelnik id="Cq_83511l">
+            <imie plec="k">Joanna</imie>
+            <nazwisko>Well</nazwisko>
+            <adres>
+                <miasto kod_pocztowy="80-066">Gdańsk</miasto>
+                <ulica>Młoda</ulica>
+                <nr_domu>22</nr_domu>
+            </adres>
+            <kontakt>
+                <email>JoaW@gmail.com</email>
+                <telefon>826830112</telefon>
+            </kontakt>
+            <data_urodzenia>1973-12-23</data_urodzenia>
+        </czytelnik>
         <czytelnik id="Cr_7151Kd">
             <imie plec="m">Łukasz</imie>
             <nazwisko>Mak</nazwisko>
@@ -193,7 +207,7 @@
         <wypozyczenie ksiazka_id="K_92z11" czytelnik_id="Cx_9241Jl">
             <data_wypozyczenia>2020-03-14</data_wypozyczenia>
             <data_do>2020-04-15</data_do>
-            <data_zwrotu>2020-03-29</data_zwrotu>
+            <data_zwrotu>2020-05-01</data_zwrotu>
         </wypozyczenie>
         <wypozyczenie ksiazka_id="K_10s02" czytelnik_id="Cp_6204Ad">
             <data_wypozyczenia>2020-03-22</data_wypozyczenia>
@@ -212,7 +226,6 @@
         <wypozyczenie ksiazka_id="K_31a11" czytelnik_id="Cr_7151Kd">
             <data_wypozyczenia>2020-05-01</data_wypozyczenia>
             <data_do>2020-06-01</data_do>
-            <data_zwrotu>2020-05-08</data_zwrotu>
         </wypozyczenie>
         <wypozyczenie ksiazka_id="K_22l18" czytelnik_id="Cl_1724De">
             <data_wypozyczenia>2020-05-01</data_wypozyczenia>

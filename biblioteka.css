@@ -1,9 +1,115 @@
-.oddana {
-    background-color: rgb(83, 235, 96)
+body {
+    background-color: skyblue;
 }
-.oddana_po_terminie {
-    background-color: rgb(235, 144, 83)
+.k, .m {
+    width: 300;
+    margin: 10px;
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.5s linear;
+    transition: scale 0.5s linear;
+}
+.czytelnicy, .ksiazki, .wypozyczenia {
+    margin: auto;
+    width: 1030px;
+    padding: 20px;
+}
+.czytelnicy .k {
+    background-color: rgb(180, 125, 202);
+}
+.czytelnicy .m {
+    background-color: rgb(125, 152, 202);
+}
+.czytelnicy .k:hover {
+    background-color: rgb(166, 77, 200);
+    transform: scale(1.1);
+}
+.czytelnicy .m:hover {
+    background-color: rgb(87, 128, 206);
+    transform: scale(1.1);
+}
+.ID::before {
+    content: "ID: ";
+}
+.podpis {
+    font-weight: bold;
+    color: white;
+}
+.czytelnicy h2, .ksiazki h2, .wypozyczenia h2 {
+    text-align: center;
+}
+.data_urodzenia {
+    font-size: 20px;
+}
+.ksiazka {
+    border-radius: 10px;
+    font-size: 30px;
+    padding: 20px;
+    margin: 30px;
+    border: 3px solid black;
+    width: 400px;
+    display: inline-block;
+    height: 200px;
+    background-color: rgb(100, 52, 52);
+}
+.tytul {
+    font-style: italic;
+    display: inline-block;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+}
+.autor { 
+    display: block;
+    clear: both;
+    text-align: center;
+    
+}
+.kategoria {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(111, 240, 25);
+    display: block;
+    text-align: center;
+    padding: 10px;
+}
+.kategoria::before {
+    content: "Typ: ";
+}
+.wydawnictwo {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(235, 222, 51);
+    display: block;
+    text-align: center;
+    padding: 10px;
+}
+.wydawnictwo::before {
+    content: "Wydawnictwo: ";
+}
+.oddana {
+    background-color: rgb(83, 235, 96);
+    opacity: 0.6;
 }
 .nieoddana {
-    background-color: rgb(235, 83, 83)
+    background-color: rgb(235, 83, 83);
+    opacity: 0.6;
+}
+.wypozyczenia table {
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+.wypozyczenia table tr {
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+}
+.wypozyczenia table tr:hover {
+    opacity: 1;
+}
+.wypozyczenia table th {
+    background-color: grey;
+    color: white;
 }

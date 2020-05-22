@@ -18,11 +18,17 @@
             <xsl:attribute name="class">
                 <xsl:text>czytelnicy</xsl:text>
             </xsl:attribute>
+            <xsl:element name="h2">
+                <xsl:text>Lista czytelników: </xsl:text>
+            </xsl:element>
             <xsl:for-each select="czytelnik">
                 <xsl:sort select="nazwisko"/>
                     <xsl:element name="div">
                         <xsl:attribute name="class">
                             <xsl:value-of select="imie/@plec"/>
+                        </xsl:attribute>
+                        <xsl:attribute name="id">
+                            <xsl:value-of select="@id"/>
                         </xsl:attribute>
 
                         <xsl:element name="div">
@@ -118,11 +124,18 @@
             <xsl:attribute name="class">
                 <xsl:text>ksiazki</xsl:text>
             </xsl:attribute>
+            <xsl:element name="h2">
+                <xsl:text>Lista książek: </xsl:text>
+            </xsl:element>
+        
             <xsl:for-each select="ksiazka">
             <xsl:sort select="tytul"/>
                 <xsl:element name="div">
                     <xsl:attribute name="class">
                         <xsl:text>ksiazka</xsl:text>
+                    </xsl:attribute>
+                    <xsl:attribute name="id">
+                        <xsl:value-of select="@id"/>
                     </xsl:attribute>
                     
                     <xsl:element name="span">
@@ -131,9 +144,9 @@
                         </xsl:attribute>
                         <xsl:text>&apos;&apos;</xsl:text>
                         <xsl:value-of select="tytul"/>
-                        <xsl:text>&apos;&apos; (</xsl:text>
+                        <xsl:text>&apos;&apos;(</xsl:text>
                         <xsl:value-of select="rok_wydania"/>
-                        <xsl:text>) </xsl:text>
+                        <xsl:text>)</xsl:text>
                     </xsl:element>
                     <xsl:text>&#xa;</xsl:text>
 
@@ -150,6 +163,22 @@
                     </xsl:element>
                     <xsl:text>&#xa;</xsl:text>
 
+                     <xsl:element name="span">
+                        <xsl:attribute name="class">
+                            <xsl:text>kategoria</xsl:text>
+                        </xsl:attribute>
+                        <xsl:value-of select="kategoria"/>
+                    </xsl:element>
+                    <xsl:text>&#xa;</xsl:text>
+
+                    <xsl:element name="span">
+                        <xsl:attribute name="class">
+                            <xsl:text>wydawnictwo</xsl:text>
+                        </xsl:attribute>
+                        <xsl:value-of select="wydawnictwo"/>
+                    </xsl:element>
+                    <xsl:text>&#xa;</xsl:text>
+
                 </xsl:element>
             </xsl:for-each>
         </xsl:element>
@@ -160,6 +189,9 @@
             <xsl:attribute name="class">
                 <xsl:text>wypozyczenia</xsl:text>
             </xsl:attribute>
+            <xsl:element name="h2">
+                <xsl:text>Historia wypozyczeń: </xsl:text>
+            </xsl:element>
             <xsl:element name="table">
                 <xsl:element name="tr">
                     <xsl:element name="th">Data wypozyczenia</xsl:element>
@@ -201,7 +233,13 @@
                                 <xsl:value-of select="/biblioteka/czytelnicy/czytelnik[@id=$czytelnik_id]/nazwisko"/>
                                 <xsl:element name="b">
                                     <xsl:text> (</xsl:text>
-                                    <xsl:value-of select="$czytelnik_id"/>
+                                    <xsl:element name="a">
+                                        <xsl:attribute name="href">
+                                            <xsl:text>#</xsl:text>
+                                            <xsl:value-of select="$czytelnik_id"/>
+                                        </xsl:attribute>
+                                        <xsl:value-of select="$czytelnik_id"/>
+                                    </xsl:element>
                                     <xsl:text>) </xsl:text>
                                 </xsl:element>
                             </xsl:element>
@@ -210,7 +248,13 @@
                                 <xsl:value-of select="/biblioteka/ksiazki/ksiazka[@id=$ksiazka_id]/tytul"/>
                                 <xsl:element name="b">
                                     <xsl:text> (</xsl:text>
-                                    <xsl:value-of select="$ksiazka_id"/>
+                                    <xsl:element name="a">
+                                        <xsl:attribute name="href">
+                                           <xsl:text>#</xsl:text>
+                                            <xsl:value-of select="$ksiazka_id"/>
+                                        </xsl:attribute>
+                                        <xsl:value-of select="$ksiazka_id"/>
+                                    </xsl:element>
                                     <xsl:text>) </xsl:text>
                                 </xsl:element>
                             </xsl:element>
@@ -221,5 +265,4 @@
             </xsl:element>
         </xsl:element>
     </xsl:template>
-
 </xsl:stylesheet>
