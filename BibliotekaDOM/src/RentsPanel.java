@@ -1,5 +1,6 @@
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import javax.swing.*;
@@ -11,17 +12,17 @@ import java.awt.event.ActionListener;
 public class RentsPanel extends JPanel {
     private Window window;
     private Document document;
+    private JTable table;
     RentsPanel(Window window) {
         this.window = window;
         document = BibliotekaDOM.document;
         setLayout(null);
         setSize(window.getSize());
         showData();
-
     }
 
     public void showData() {
-        String columnNames[] = {"osoba_id", "osoba", "ksiazka_id", "ksiazka", "wypozyczenia", "termin", "zwrot"};
+        String columnNames[] = {"osoba_id", "osoba", "ksiazka_id", "ksiazka", "wypozyczenie", "termin", "zwrot"};
 
         NodeList rents = document.getElementsByTagName("wypozyczenie");
         Object[][] data = new Object[rents.getLength()][columnNames.length];
@@ -62,7 +63,7 @@ public class RentsPanel extends JPanel {
             data[i] = row;
         }
 
-        JTable table = new JTable(data, columnNames) {
+        table = new JTable(data, columnNames) {
             private static final long serialVersionUID = 1L;
 
             public boolean isCellEditable(int row, int column) {
@@ -74,7 +75,6 @@ public class RentsPanel extends JPanel {
         table.getColumnModel().getColumn(0).setMaxWidth(80);
         table.getColumnModel().getColumn(2).setMaxWidth(80);
         table.getColumnModel().getColumn(2).setMinWidth(80);
-
 
         table.getColumnModel().getColumn(4).setMaxWidth(95);
         table.getColumnModel().getColumn(4).setMinWidth(95);
@@ -93,9 +93,9 @@ public class RentsPanel extends JPanel {
         JButton del = new JButton("Usuń");
         del.addActionListener(new Delete());
         JButton edit = new JButton("Zmień");
-        del.addActionListener(new Edit());
+        edit.addActionListener(new Edit());
         JButton add = new JButton("Dodaj");
-        del.addActionListener(new Add());
+        add.addActionListener(new Add());
 
         JPanel menu = new JPanel();
         menu.setPreferredSize(new Dimension( 150,window.getHeight()));
@@ -108,7 +108,31 @@ public class RentsPanel extends JPanel {
     }
     public class Delete implements ActionListener {
         public void actionPerformed(ActionEvent action) {
-            System.out.println("usun");
+            System.out.println("lecim");
+            int row = table.getSelectedRow();
+            if (row < 0) {
+                JOptionPane.showMessageDialog(window, "Wybierz wypozyczenie do usunięcia");
+                return;
+            }
+            String userID = table.getValueAt(row, 0).toString();
+            String bookID = table.getValueAt(row, 2).toString();
+            String rDate = table.getValueAt(row, 4).toString();
+            NodeList rents = document.getElementsByTagName("wypozyczenie");
+
+            for (int i = 0; i < rents.getLength(); i++) {
+                String u_id = ((Element)rents.item(i)).getAttribute("czytelnik_id");
+                String b_id = ((Element)rents.item(i)).getAttribute("ksiazka_id");
+                String r_date = ((Element)rents.item(i)).getElementsByTagName("data_wypozyczenia").item(0).getFirstChild().getNodeValue();
+
+                if (userID.equals(u_id) && bookID.equals(b_id) && rDate.equals(r_date)) {
+                    Node rent = rents.item(i);
+                    rent.getParentNode().removeChild(rent);
+                    JOptionPane.showMessageDialog(window, "Wypożyczenie usunięte");
+                    window.setScene(new RentsPanel(window));
+                    break;
+                }
+            }
+
         }
     }
     public class Edit implements ActionListener {

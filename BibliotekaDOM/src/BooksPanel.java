@@ -1,5 +1,6 @@
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import javax.swing.*;
@@ -11,6 +12,7 @@ import java.awt.event.ActionListener;
 public class BooksPanel extends JPanel {
     private Window window;
     private Document document;
+    private JTable table;
 
     BooksPanel(Window window) {
         this.window = window;
@@ -46,7 +48,7 @@ public class BooksPanel extends JPanel {
             data[i] = row;
         }
 
-        JTable table = new JTable(data, columnNames) {
+        table = new JTable(data, columnNames) {
             private static final long serialVersionUID = 1L;
 
             public boolean isCellEditable(int row, int column) {
@@ -71,9 +73,9 @@ public class BooksPanel extends JPanel {
         JButton del = new JButton("Usuń");
         del.addActionListener(new Delete());
         JButton edit = new JButton("Zmień");
-        del.addActionListener(new Edit());
+        edit.addActionListener(new Edit());
         JButton add = new JButton("Dodaj");
-        del.addActionListener(new Add());
+        add.addActionListener(new Add());
 
         JPanel menu = new JPanel();
         menu.setPreferredSize(new Dimension( 150,window.getHeight()));
@@ -86,7 +88,37 @@ public class BooksPanel extends JPanel {
     }
     public class Delete implements ActionListener {
         public void actionPerformed(ActionEvent action) {
-            System.out.println("usun");
+            int row = table.getSelectedRow();
+            if (row < 0) {
+                JOptionPane.showMessageDialog(window, "Wybierz książkę do usunięcia");
+                return;
+            }
+
+            String id = table.getValueAt(row, 0).toString();
+            NodeList books = document.getElementsByTagName("ksiazka");
+            for (int i = 0; i < books.getLength(); i++) {
+                String b_id = ((Element)books.item(i)).getAttribute("id");
+                if (b_id.equals(id)) {
+                    boolean canBeDel = true;
+                    NodeList rents = document.getElementsByTagName("wypozyczenie");
+                    for (int j = 0; j < rents.getLength();j++) {
+                        String bookID = ((Element) rents.item(j)).getAttributes().getNamedItem("ksiazka_id").getFirstChild().getNodeValue();
+                        if (bookID.equals(b_id)) {
+                            canBeDel = false;
+                            break;
+                        }
+                    }
+                    if (canBeDel) {
+                        Node book = books.item(i);
+                        book.getParentNode().removeChild(book);
+                        JOptionPane.showMessageDialog(window, "Książka usunięta");
+                        window.setScene(new BooksPanel(window));
+
+                    } else {
+                        JOptionPane.showMessageDialog(window, "Nie można usunąć książki powiązanej z wypożyczeniem");
+                    }
+                }
+            }
         }
     }
     public class Edit implements ActionListener {

@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 public class UsersPanel extends JPanel {
     private Window window;
     private Document document;
+    private JTable table;
 
     UsersPanel(Window window) {
         this.window = window;
@@ -58,7 +59,7 @@ public class UsersPanel extends JPanel {
             data[i] = row;
         }
 
-        JTable table = new JTable(data, columnNames) {
+        table = new JTable(data, columnNames) {
             private static final long serialVersionUID = 1L;
 
             public boolean isCellEditable(int row, int column) {
@@ -85,9 +86,9 @@ public class UsersPanel extends JPanel {
         JButton del = new JButton("Usuń");
         del.addActionListener(new Delete());
         JButton edit = new JButton("Zmień");
-        del.addActionListener(new Edit());
+        edit.addActionListener(new Edit());
         JButton add = new JButton("Dodaj");
-        del.addActionListener(new Add());
+        add.addActionListener(new Add());
 
         JPanel menu = new JPanel();
         menu.setPreferredSize(new Dimension( 150,window.getHeight()));
@@ -100,7 +101,36 @@ public class UsersPanel extends JPanel {
     }
     public class Delete implements ActionListener {
         public void actionPerformed(ActionEvent action) {
-            System.out.println("usun");
+            int row = table.getSelectedRow();
+            if (row < 0) {
+                JOptionPane.showMessageDialog(window, "Wybierz osobe do usunięcia");
+                return;
+            }
+            String id = table.getValueAt(row, 0).toString();
+            NodeList users = document.getElementsByTagName("czytelnik");
+            for (int i = 0; i < users.getLength(); i++) {
+                String u_id = ((Element)users.item(i)).getAttribute("id");
+                if (u_id.equals(id)) {
+                    boolean canBeDel = true;
+                    NodeList rents = document.getElementsByTagName("wypozyczenie");
+                    for (int j = 0; j < rents.getLength();j++) {
+                        String userID = ((Element) rents.item(j)).getAttributes().getNamedItem("czytelnik_id").getFirstChild().getNodeValue();
+                        if (userID.equals(u_id)) {
+                            canBeDel = false;
+                            break;
+                        }
+                    }
+                    if (canBeDel) {
+                        Node user = users.item(i);
+                        user.getParentNode().removeChild(user);
+                        JOptionPane.showMessageDialog(window, "Osoba usunięta");
+                        window.setScene(new UsersPanel(window));
+
+                    } else {
+                        JOptionPane.showMessageDialog(window, "Nie można usunąć osoby powiązanej z wypożyczeniem");
+                    }
+                }
+            }
         }
     }
     public class Edit implements ActionListener {
