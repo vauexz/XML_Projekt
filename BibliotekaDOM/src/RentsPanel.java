@@ -5,6 +5,8 @@ import org.w3c.dom.NodeList;
 import javax.swing.*;
 import javax.swing.table.TableColumn;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class RentsPanel extends JPanel {
     private Window window;
@@ -19,7 +21,7 @@ public class RentsPanel extends JPanel {
     }
 
     public void showData() {
-        String columnNames[] = {"osoba", "ksiazka", "wypozyczenia", "termin", "zwrot"};
+        String columnNames[] = {"osoba_id", "osoba", "ksiazka_id", "ksiazka", "wypozyczenia", "termin", "zwrot"};
 
         NodeList rents = document.getElementsByTagName("wypozyczenie");
         Object[][] data = new Object[rents.getLength()][columnNames.length];
@@ -56,18 +58,31 @@ public class RentsPanel extends JPanel {
                 }
             }
 
-            Object[] row = {user + "[" + userID + "]", title + "[" + bookID + "]", rentDate, returnTo, returnDate};
+            Object[] row = {userID, user, bookID, title, rentDate, returnTo, returnDate};
             data[i] = row;
         }
 
-        JTable table = new JTable(data, columnNames);
+        JTable table = new JTable(data, columnNames) {
+            private static final long serialVersionUID = 1L;
 
-        table.getColumnModel().getColumn(2).setMaxWidth(100);
-        table.getColumnModel().getColumn(2).setMinWidth(100);
-        table.getColumnModel().getColumn(3).setMaxWidth(100);
-        table.getColumnModel().getColumn(3).setMinWidth(100);
-        table.getColumnModel().getColumn(4).setMaxWidth(100);
-        table.getColumnModel().getColumn(4).setMinWidth(100);
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            };
+        };
+        table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        table.getColumnModel().getColumn(0).setMinWidth(80);
+        table.getColumnModel().getColumn(0).setMaxWidth(80);
+        table.getColumnModel().getColumn(2).setMaxWidth(80);
+        table.getColumnModel().getColumn(2).setMinWidth(80);
+
+
+        table.getColumnModel().getColumn(4).setMaxWidth(95);
+        table.getColumnModel().getColumn(4).setMinWidth(95);
+        table.getColumnModel().getColumn(5).setMaxWidth(95);
+        table.getColumnModel().getColumn(5).setMinWidth(95);
+        table.getColumnModel().getColumn(6).setMaxWidth(95);
+        table.getColumnModel().getColumn(6).setMinWidth(95);
+        table.setPreferredSize(new Dimension(window.getWidth() - 150, window.getHeight()));
 
         setLayout(new BorderLayout());
         add(table.getTableHeader(), BorderLayout.PAGE_START);
@@ -75,11 +90,35 @@ public class RentsPanel extends JPanel {
 
 
 
-        Menu menu = new Menu(window);
-        add(menu, BorderLayout.PAGE_END);
+        JButton del = new JButton("Usuń");
+        del.addActionListener(new Delete());
+        JButton edit = new JButton("Zmień");
+        del.addActionListener(new Edit());
+        JButton add = new JButton("Dodaj");
+        del.addActionListener(new Add());
 
-        JButton addRent = new JButton("Dodaj wypozyczenie");
-        menu.add(addRent);
+        JPanel menu = new JPanel();
+        menu.setPreferredSize(new Dimension( 150,window.getHeight()));
+        menu.add(add);
+        menu.add(edit);
+        menu.add(del);
+        menu.setBackground(Color.WHITE);
+        add(menu, BorderLayout.EAST);
+        add(new Menu(window), BorderLayout.PAGE_END);
     }
-
+    public class Delete implements ActionListener {
+        public void actionPerformed(ActionEvent action) {
+            System.out.println("usun");
+        }
+    }
+    public class Edit implements ActionListener {
+        public void actionPerformed(ActionEvent action) {
+            System.out.println("edytuj");
+        }
+    }
+    public class Add implements ActionListener {
+        public void actionPerformed(ActionEvent action) {
+            System.out.println("dodaj");
+        }
+    }
 }

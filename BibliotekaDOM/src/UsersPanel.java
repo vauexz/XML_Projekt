@@ -6,6 +6,8 @@ import org.w3c.dom.NodeList;
 import javax.swing.*;
 import javax.swing.table.TableColumn;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class UsersPanel extends JPanel {
     private Window window;
@@ -56,7 +58,14 @@ public class UsersPanel extends JPanel {
             data[i] = row;
         }
 
-        JTable table = new JTable(data, columnNames);
+        JTable table = new JTable(data, columnNames) {
+            private static final long serialVersionUID = 1L;
+
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            };
+        };
+        table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         table.getColumnModel().getColumn(0).setMinWidth(90);
         table.getColumnModel().getColumn(0).setMaxWidth(90);
         table.getColumnModel().getColumn(1).setMinWidth(140);
@@ -70,16 +79,38 @@ public class UsersPanel extends JPanel {
 
         setLayout(new BorderLayout());
         add(table.getTableHeader(), BorderLayout.PAGE_START);
-        add(table, BorderLayout.CENTER);
+        add(table, BorderLayout.WEST);
+        table.setPreferredSize(new Dimension(window.getWidth() - 150, window.getHeight()));
 
         JButton del = new JButton("Usuń");
+        del.addActionListener(new Delete());
         JButton edit = new JButton("Zmień");
+        del.addActionListener(new Edit());
+        JButton add = new JButton("Dodaj");
+        del.addActionListener(new Add());
 
-
-        Menu menu = new Menu(window);
-        add(menu, BorderLayout.PAGE_END);
-
-        JButton addUser = new JButton("Dodaj osobę");
-        menu.add(addUser);
+        JPanel menu = new JPanel();
+        menu.setPreferredSize(new Dimension( 150,window.getHeight()));
+        menu.add(add);
+        menu.add(edit);
+        menu.add(del);
+        menu.setBackground(Color.WHITE);
+        add(menu, BorderLayout.EAST);
+        add(new Menu(window), BorderLayout.PAGE_END);
+    }
+    public class Delete implements ActionListener {
+        public void actionPerformed(ActionEvent action) {
+            System.out.println("usun");
+        }
+    }
+    public class Edit implements ActionListener {
+        public void actionPerformed(ActionEvent action) {
+            System.out.println("edytuj");
+        }
+    }
+    public class Add implements ActionListener {
+        public void actionPerformed(ActionEvent action) {
+            System.out.println("dodaj");
+        }
     }
 }
