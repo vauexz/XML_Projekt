@@ -49,20 +49,20 @@ public class FileChoosePanel extends JPanel {
             int returnVal = chooser.showOpenDialog(window);
 
             if (returnVal == JFileChooser.APPROVE_OPTION) {
-                String inputXML = chooser.getSelectedFile().getPath();
+                BibliotekaDOM.xmlFile = chooser.getSelectedFile().getPath();
                 try {
                     System.setProperty(DOMImplementationRegistry.PROPERTY,"org.apache.xerces.dom.DOMXSImplementationSourceImpl");
 
                     DOMImplementationRegistry registry = DOMImplementationRegistry.newInstance();
-                    DOMImplementationLS impl = (DOMImplementationLS) registry.getDOMImplementation("LS");
-                    LSParser builder  = impl.createLSParser(DOMImplementationLS.MODE_SYNCHRONOUS, null);
-                    DOMConfiguration config = builder.getDomConfig();
+                    BibliotekaDOM.impl = (DOMImplementationLS) registry.getDOMImplementation("LS");
+                    LSParser builder  = BibliotekaDOM.impl.createLSParser(DOMImplementationLS.MODE_SYNCHRONOUS, null);
+                    BibliotekaDOM.config = builder.getDomConfig();
                     DOMErrorHandler errorHandler = getErrorHandler();
-                    config.setParameter("error-handler", errorHandler);
-                    config.setParameter("validate", Boolean.TRUE);
-                    config.setParameter("schema-type","http://www.w3.org/2001/XMLSchema");
-                    config.setParameter("schema-location", inputXSD);
-                    BibliotekaDOM.document = builder.parseURI(inputXML);
+                    BibliotekaDOM.config.setParameter("error-handler", errorHandler);
+                    BibliotekaDOM.config.setParameter("validate", Boolean.TRUE);
+                    BibliotekaDOM.config.setParameter("schema-type","http://www.w3.org/2001/XMLSchema");
+                    BibliotekaDOM.config.setParameter("schema-location", inputXSD);
+                    BibliotekaDOM.document = builder.parseURI(BibliotekaDOM.xmlFile);
 
                     if (documentOK)
                         window.setScene(new UsersPanel(window));

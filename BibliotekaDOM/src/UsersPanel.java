@@ -33,21 +33,53 @@ public class UsersPanel extends JPanel {
             String name = ((Element) user).getElementsByTagName("imie").item(0).getFirstChild().getNodeValue();
             String surname = ((Element) user).getElementsByTagName("nazwisko").item(0).getFirstChild().getNodeValue();
             String birthDate = ((Element) user).getElementsByTagName("data_urodzenia").item(0).getFirstChild().getNodeValue();
-            NodeList contactNode = ((Element) user).getElementsByTagName("kontakt");
 
-            Object[] row = {userID, name + " " + surname, birthDate, "1111", "1111", "aaaa"};
+            NodeList contactNode = ((Element)user).getElementsByTagName("kontakt");
+            String email = ((Element)contactNode.item(0)).getElementsByTagName("email").item(0).getFirstChild().getNodeValue();
+            String phone = ((Element)contactNode.item(0)).getElementsByTagName("telefon").item(0).getFirstChild().getNodeValue();
+
+            NodeList addressNode = ((Element)user).getElementsByTagName("adres");
+            String city = ((Element)addressNode.item(0)).getElementsByTagName("miasto").item(0).getFirstChild().getNodeValue();
+            String postalCode = ((Element)addressNode.item(0)).getElementsByTagName("miasto").item(0).getAttributes().getNamedItem("kod_pocztowy").getFirstChild().getNodeValue();
+            String street = ((Element)addressNode.item(0)).getElementsByTagName("ulica").item(0).getFirstChild().getNodeValue();
+            String hNumber = ((Element)addressNode.item(0)).getElementsByTagName("nr_domu").item(0).getFirstChild().getNodeValue();
+
+            NodeList aNumberN = ((Element)addressNode.item(0)).getElementsByTagName("nr_mieszkania");
+            Integer aNumber = null;
+            if (aNumberN.getLength() != 0)
+                aNumber = Integer.parseInt(aNumberN.item(0).getFirstChild().getNodeValue());
+
+
+            String address = "<html>" + postalCode + " " + city + ", <br/>" + street + " " + hNumber + (aNumber != null ? "/" + aNumber : "") + "</html>";
+
+            Object[] row = {userID, name + " " + surname, birthDate, phone, email, address};
             data[i] = row;
         }
 
         JTable table = new JTable(data, columnNames);
-        JScrollPane scrollPane = new JScrollPane(table);
+        table.getColumnModel().getColumn(0).setMinWidth(90);
+        table.getColumnModel().getColumn(0).setMaxWidth(90);
+        table.getColumnModel().getColumn(1).setMinWidth(140);
+        table.getColumnModel().getColumn(1).setMaxWidth(140);
+        table.getColumnModel().getColumn(2).setPreferredWidth(110);
+        table.getColumnModel().getColumn(2).setMaxWidth(110);
+        table.getColumnModel().getColumn(3).setMinWidth(100);
+        table.getColumnModel().getColumn(3).setMaxWidth(100);
+        table.setRowHeight(35);
         table.setFillsViewportHeight(true);
-        table.setMaximumSize(new Dimension(700, 300));
+
         setLayout(new BorderLayout());
         add(table.getTableHeader(), BorderLayout.PAGE_START);
         add(table, BorderLayout.CENTER);
-        TableColumn column = null;
 
-        add(new Menu(window), BorderLayout.PAGE_END);
+        JButton del = new JButton("Usuń");
+        JButton edit = new JButton("Zmień");
+
+
+        Menu menu = new Menu(window);
+        add(menu, BorderLayout.PAGE_END);
+
+        JButton addUser = new JButton("Dodaj osobę");
+        menu.add(addUser);
     }
 }

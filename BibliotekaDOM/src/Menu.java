@@ -1,7 +1,11 @@
+import org.w3c.dom.ls.LSOutput;
+import org.w3c.dom.ls.LSSerializer;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileOutputStream;
 
 public class Menu extends JPanel {
 
@@ -60,7 +64,19 @@ public class Menu extends JPanel {
 
     public class Save implements ActionListener {
         public void actionPerformed(ActionEvent action) {
-            /*window.setScene(new UsersPanel(window));*/
+            try {
+                LSSerializer domWriter = BibliotekaDOM.impl.createLSSerializer();
+                BibliotekaDOM.config = domWriter.getDomConfig();
+                BibliotekaDOM.config.setParameter("xml-declaration", Boolean.TRUE);
+
+                LSOutput dOut = BibliotekaDOM.impl.createLSOutput();
+                dOut.setEncoding("latin2");
+                dOut.setByteStream(new FileOutputStream(BibliotekaDOM.xmlFile));
+
+                domWriter.write(BibliotekaDOM.document, dOut);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 

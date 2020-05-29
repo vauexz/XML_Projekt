@@ -9,6 +9,7 @@ import java.awt.*;
 public class BooksPanel extends JPanel {
     private Window window;
     private Document document;
+
     BooksPanel(Window window) {
         this.window = window;
         document = BibliotekaDOM.document;
@@ -19,31 +20,49 @@ public class BooksPanel extends JPanel {
     }
 
     public void showData() {
-        String columnNames[] = {"id", "osoba", "data urodzenia", "telefon", "email", "adres"};
+        String columnNames[] = {"id", "tytul", "rok", "autor", "wydawnictwo", "kategoria"};
 
-        NodeList users = document.getElementsByTagName("czytelnik");
-        Object[][] data = new Object[users.getLength()][columnNames.length];
+        NodeList books = document.getElementsByTagName("ksiazka");
+        Object[][] data = new Object[books.getLength()][columnNames.length];
 
 
-        for (int i = 0; i < users.getLength(); i++) {
-            NodeList user = users.item(i).getChildNodes();
-            String userID = ((Element) user).getAttributes().getNamedItem("id").getFirstChild().getNodeValue();
-            String name = ((Element) user).getElementsByTagName("imie").item(0).getFirstChild().getNodeValue();
-            String surname = ((Element) user).getElementsByTagName("nazwisko").item(0).getFirstChild().getNodeValue();
-            String birthDate = ((Element) user).getElementsByTagName("data_urodzenia").item(0).getFirstChild().getNodeValue();
-            Object[] row = {userID, name + "\n " + surname, birthDate, "1111", "1111", "aaaa"};
+        for (int i = 0; i < books.getLength(); i++) {
+            NodeList book = books.item(i).getChildNodes();
+            String bookID = ((Element) book).getAttributes().getNamedItem("id").getFirstChild().getNodeValue();
+            String title = ((Element) book).getElementsByTagName("tytul").item(0).getFirstChild().getNodeValue();
+            String year = ((Element) book).getElementsByTagName("rok_wydania").item(0).getFirstChild().getNodeValue();
+            String pHouse = ((Element) book).getElementsByTagName("wydawnictwo").item(0).getFirstChild().getNodeValue();
+            String category = ((Element) book).getElementsByTagName("kategoria").item(0).getFirstChild().getNodeValue();
+
+            NodeList authorNode = ((Element) book).getElementsByTagName("autor");
+            String author = "<html>" + authorNode.item(0).getFirstChild().getNodeValue();
+            for (int j = 1; j < authorNode.getLength(); j++)
+                author += "<br/>" + authorNode.item(j).getFirstChild().getNodeValue();
+            author += "</html>";
+
+            Object[] row = {bookID, title, year, author, pHouse, category};
             data[i] = row;
         }
 
         JTable table = new JTable(data, columnNames);
-        JScrollPane scrollPane = new JScrollPane(table);
+        table.getColumnModel().getColumn(0).setMinWidth(90);
+        table.getColumnModel().getColumn(0).setMaxWidth(90);
+
+        table.getColumnModel().getColumn(2).setPreferredWidth(70);
+        table.getColumnModel().getColumn(2).setMaxWidth(70);
+
+        table.setRowHeight(35);
         table.setFillsViewportHeight(true);
-        table.setMaximumSize(new Dimension(700, 300));
+
         setLayout(new BorderLayout());
         add(table.getTableHeader(), BorderLayout.PAGE_START);
         add(table, BorderLayout.CENTER);
-        TableColumn column = null;
 
-        add(new Menu(window), BorderLayout.PAGE_END);
+
+        Menu menu = new Menu(window);
+        add(menu, BorderLayout.PAGE_END);
+
+        JButton addBook = new JButton("Dodaj książkę");
+        menu.add(addBook);
     }
 }
