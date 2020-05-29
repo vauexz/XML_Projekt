@@ -1,0 +1,35 @@
+<!ELEMENT biblioteka (czytelnicy, ksiazki, wypozyczenia)>
+    <!ELEMENT czytelnicy (czytelnik+)>
+        <!ELEMENT czytelnik (imie, nazwisko, adres, kontakt, data_urodzenia)>
+            <!ATTLIST czytelnik id ID #REQUIRED>
+            <!ELEMENT imie (#PCDATA)>
+                <!ATTLIST imie plec (m | k) #REQUIRED>
+            <!ELEMENT nazwisko (#PCDATA)>
+            <!ELEMENT adres (miasto, ulica, nr_domu, nr_mieszkania?)>
+                <!ELEMENT miasto (#PCDATA)>
+                    <!ATTLIST miasto kod_pocztowy CDATA #REQUIRED>
+                <!ELEMENT ulica (#PCDATA)>
+                <!ELEMENT nr_domu (#PCDATA)>
+                <!ELEMENT nr_mieszkania (#PCDATA)>
+            <!ELEMENT kontakt (email, telefon)>
+                <!ELEMENT email (#PCDATA)>
+                <!ELEMENT telefon (#PCDATA)>
+            <!ELEMENT data_urodzenia (#PCDATA)>
+            
+    <!ELEMENT ksiazki (ksiazka+)>
+        <!ELEMENT ksiazka (tytul, autor+, rok_wydania, liczba_stron, wydawnictwo, kategoria)>
+            <!ATTLIST ksiazka id ID #REQUIRED>
+            <!ELEMENT tytul (#PCDATA)>
+            <!ELEMENT autor (#PCDATA)>
+            <!ELEMENT rok_wydania (#PCDATA)>
+            <!ELEMENT liczba_stron (#PCDATA)>
+            <!ELEMENT wydawnictwo (#PCDATA)>
+            <!ELEMENT kategoria (#PCDATA)>
+
+    <!ELEMENT wypozyczenia (wypozyczenie*)>
+        <!ELEMENT wypozyczenie (data_wypozyczenia, data_do, data_zwrotu?)>
+            <!ATTLIST wypozyczenie ksiazka_id IDREF #REQUIRED>
+            <!ATTLIST wypozyczenie czytelnik_id IDREF #REQUIRED>
+            <!ELEMENT data_wypozyczenia (#PCDATA)>
+            <!ELEMENT data_do (#PCDATA)>
+            <!ELEMENT data_zwrotu (#PCDATA)>
