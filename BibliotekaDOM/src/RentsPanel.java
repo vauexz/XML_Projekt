@@ -108,7 +108,6 @@ public class RentsPanel extends JPanel {
     }
     public class Delete implements ActionListener {
         public void actionPerformed(ActionEvent action) {
-            System.out.println("lecim");
             int row = table.getSelectedRow();
             if (row < 0) {
                 JOptionPane.showMessageDialog(window, "Wybierz wypozyczenie do usunięcia");
@@ -137,12 +136,24 @@ public class RentsPanel extends JPanel {
     }
     public class Edit implements ActionListener {
         public void actionPerformed(ActionEvent action) {
-            System.out.println("edytuj");
+            int row = table.getSelectedRow();
+            if (row < 0) {
+                JOptionPane.showMessageDialog(window, "Wybierz wypozyczenie do zmiany");
+                return;
+            }
+            new EditRentWindow(
+                    window,
+                    table.getValueAt(row, 0).toString(),
+                    table.getValueAt(row, 2).toString(),
+                    table.getValueAt(row, 4).toString(),
+                    table.getValueAt(row, 5).toString(),
+                    table.getValueAt(row, 6).toString()
+                    );
         }
     }
     public class Add implements ActionListener {
         public void actionPerformed(ActionEvent action) {
-            System.out.println("dodaj");
+            new AddRentWindow(window);
         }
     }
 }
