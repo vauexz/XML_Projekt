@@ -89,7 +89,7 @@ public class EditRentWindow extends JFrame {
         rentDateLabel.setSize(120, 30);
         add(rentDateLabel);
 
-        JLabel returnToLabel = new JLabel("Termin*");
+        JLabel returnToLabel = new JLabel("Termin");
         returnToLabel.setLocation(140, 160);
         returnToLabel.setSize(120, 30);
         add(returnToLabel);
@@ -99,7 +99,6 @@ public class EditRentWindow extends JFrame {
         returnLabel.setSize(120, 30);
         add(returnLabel);
 
-        JLabel info = new JLabel("Data w formacie RRRR-MM-DD");
         JButton editBtn = new JButton("OK");
         editBtn.addActionListener(new EditRent());
         editBtn.setSize(80, 30);

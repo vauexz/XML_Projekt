@@ -65,7 +65,7 @@ public class FileChoosePanel extends JPanel {
                     BibliotekaDOM.document = builder.parseURI(BibliotekaDOM.xmlFile);
 
                     if (documentOK)
-                        window.setScene(new UsersPanel(window));
+                        window.setScene(new RentsPanel(window));
                     else
                         error.setText("Nieprawidłowy dokument XML");
                     documentOK = true;

@@ -89,7 +89,7 @@ public class AddRentWindow extends JFrame {
         returnToLabel.setSize(120, 30);
         add(returnToLabel);
 
-        JLabel returnLabel = new JLabel("Data zwrotu*");
+        JLabel returnLabel = new JLabel("Data zwrotu");
         returnLabel.setLocation(270, 160);
         returnLabel.setSize(120, 30);
         add(returnLabel);

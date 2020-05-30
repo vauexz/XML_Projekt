@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="latin2"?>
+<biblioteka>
+    <czytelnicy>
+        <czytelnik id="Cx_7252Fd">
+            <imie plec="m">Jan</imie>
+            <nazwisko>Nowak</nazwisko>
+            <adres>
+                <miasto kod_pocztowy="80-017">Gdańsk</miasto>
+                <ulica>Kwiatowa</ulica>
+                <nr_domu>10</nr_domu>
+                <nr_mieszkania>1</nr_mieszkania>
+            </adres>
+            <kontakt>
+                <email>jannowak@example.com</email>
+                <telefon>123456789</telefon>
+            </kontakt>
+            <data_urodzenia>1999-02-01</data_urodzenia>
+        </czytelnik>
+        <czytelnik id="Cx_6151Gq">
+            <imie plec="m">Marcin</imie>
+            <nazwisko>Wiatr</nazwisko>
+            <adres>
+                <miasto kod_pocztowy="80-017">Gdańsk</miasto>
+                <ulica>Słoneczna</ulica>
+                <nr_domu>44</nr_domu>
+            </adres>
+            <kontakt>
+                <email>mwtrk@example.com</email>
+                <telefon>187256789</telefon>
+            </kontakt>
+            <data_urodzenia>1979-12-21</data_urodzenia>
+        </czytelnik>
+        <czytelnik id="Cd_1341Po">
+            <imie plec="m">Kacper</imie>
+            <nazwisko>Krzak</nazwisko>
+            <adres>
+                <miasto kod_pocztowy="80-077">Gdańsk</miasto>
+                <ulica>Łąkowa</ulica>
+                <nr_domu>4</nr_domu>
+            </adres>
+            <kontakt>
+                <email>kkrzakk@example.com</email>
+                <telefon>111321421</telefon>
+            </kontakt>
+            <data_urodzenia>1998-12-12</data_urodzenia>
+        </czytelnik>
+        <czytelnik id="Cx_9241Jl">
+            <imie plec="k">Kamila</imie>
+            <nazwisko>Chmura</nazwisko>
+            <adres>
+                <miasto kod_pocztowy="80-033">Gdańsk</miasto>
+                <ulica>Polna</ulica>
+                <nr_domu>33</nr_domu>
+                <nr_mieszkania>22</nr_mieszkania>
+            </adres>
+            <kontakt>
+                <email>kamilachh@example.com</email>
+                <telefon>928625142</telefon>
+            </kontakt>
+            <data_urodzenia>1988-05-23</data_urodzenia>
+        </czytelnik>
+        <czytelnik id="Cp_6204Ad">
+            <imie plec="k">Janina</imie>
+            <nazwisko>Kowalska</nazwisko>
+            <adres>
+                <miasto kod_pocztowy="80-041">Gdańsk</miasto>
+                <ulica>Nowa</ulica>
+                <nr_domu>10</nr_domu>
+            </adres>
+            <kontakt>
+                <email>janina@mail.com</email>
+                <telefon>333333333</telefon>
+            </kontakt>
+            <data_urodzenia>2001-01-13</data_urodzenia>
+        </czytelnik>
+        
+        <czytelnik id="Cq_8351Kl">
+            <imie plec="k">Joanna</imie>
+            <nazwisko>Well</nazwisko>
+            <adres>
+                <miasto kod_pocztowy="80-066">Gdańsk</miasto>
+                <ulica>Młoda</ulica>
+                <nr_domu>22</nr_domu>
+            </adres>
+            <kontakt>
+                <email>JoaW@gmail.com</email>
+                <telefon>826830112</telefon>
+            </kontakt>
+            <data_urodzenia>1973-12-23</data_urodzenia>
+        </czytelnik>
+        <czytelnik id="Cr_7151Kd">
+            <imie plec="m">Łukasz</imie>
+            <nazwisko>Mak</nazwisko>
+            <adres>
+                <miasto kod_pocztowy="80-026">Gdańsk</miasto>
+                <ulica>Deszczowa</ulica>
+                <nr_domu>2</nr_domu>
+                <nr_mieszkania>1</nr_mieszkania>
+            </adres>
+            <kontakt>
+                <email>lmak@gmail.com</email>
+                <telefon>726142036</telefon>
+            </kontakt>
+            <data_urodzenia>1997-10-13</data_urodzenia>
+        </czytelnik>
+        <czytelnik id="Cl_1724De">
+            <imie plec="m">Marcin</imie>
+            <nazwisko>Mak</nazwisko>
+            <adres>
+                <miasto kod_pocztowy="80-026">Gdańsk</miasto>
+                <ulica>Deszczowa</ulica>
+                <nr_domu>2</nr_domu>
+                <nr_mieszkania>1</nr_mieszkania>
+            </adres>
+            <kontakt>
+                <email>mmak@gmail.com</email>
+                <telefon>624102913</telefon>
+            </kontakt>
+            <data_urodzenia>1999-04-03</data_urodzenia>
+        </czytelnik>
+    <czytelnik id="Cs_4159Vr"><imie plec="m">Jan</imie><nazwisko>Kowalski</nazwisko><adres><miasto kod_pocztowy="00-000">Gdansk</miasto><ulica>Kowalowa</ulica><nr_domu>11</nr_domu></adres><kontakt><email>ssa@sd.com</email><telefon>112345876</telefon></kontakt><data_urodzenia>1999-10-10</data_urodzenia></czytelnik></czytelnicy>
+    <ksiazki>
+        <ksiazka id="K_22l18">
+            <tytul>Błyski</tytul>
+            <autor>Julia Hartwig</autor>
+            <rok_wydania>2015</rok_wydania>
+            <liczba_stron>98</liczba_stron>
+            <wydawnictwo>Sic</wydawnictwo>
+            <kategoria>Poezja</kategoria>
+        </ksiazka>
+        <ksiazka id="K_31a11">
+            <tytul>Był sobie pies</tytul>
+            <autor>W. Bruce Cameron</autor>
+            <rok_wydania>2017</rok_wydania>
+            <liczba_stron>392</liczba_stron>
+            <wydawnictwo>Kobiece</wydawnictwo>
+            <kategoria>Przygodowe</kategoria>
+        </ksiazka>
+        <ksiazka id="K_92z11">
+            <tytul>Uśpione morderstwo</tytul>
+            <autor>Agatha Christie</autor>
+            <rok_wydania>2019</rok_wydania>
+            <liczba_stron>200</liczba_stron>
+            <wydawnictwo>Wydawnictwo Dolnośląskie</wydawnictwo>
+            <kategoria>Kryminał</kategoria>
+        </ksiazka>
+        <ksiazka id="K_02h25">
+            <tytul>Opowiadania</tytul>
+            <autor>Jan Kowalski</autor>
+            <rok_wydania>2001</rok_wydania>
+            <liczba_stron>99</liczba_stron>
+            <wydawnictwo>Zielono</wydawnictwo>
+            <kategoria>Opowiadania</kategoria>
+        </ksiazka>
+        
+        <ksiazka id="K_78w89">
+            <tytul>Upadły anioł</tytul>
+            <autor>Mari Jungstedt</autor>
+            <rok_wydania>2016</rok_wydania>
+            <liczba_stron>270</liczba_stron>
+            <wydawnictwo>Edipresse Polska</wydawnictwo>
+            <kategoria>Kryminał</kategoria>
+        </ksiazka>
+        <ksiazka id="K_78w91">
+            <tytul>Carrie</tytul>
+            <autor>Stephen King</autor>
+            <rok_wydania>2017</rok_wydania>
+            <liczba_stron>216</liczba_stron>
+            <wydawnictwo>Albatros</wydawnictwo>
+            <kategoria>Horror</kategoria>
+        </ksiazka>
+    <ksiazka id="K_72v87"><tytul>ksiazka</tytul><autor>autor</autor><rok_wydania>1999</rok_wydania><liczba_stron>10</liczba_stron><wydawnictwo>nowe</wydawnictwo><kategoria>Poezja</kategoria></ksiazka></ksiazki>
+    <wypozyczenia>
+        <wypozyczenie czytelnik_id="Cd_1341Po" ksiazka_id="K_31a11">
+            <data_wypozyczenia>2020-02-12</data_wypozyczenia>
+            <data_do>2020-03-15</data_do>
+            <data_zwrotu>2020-03-01</data_zwrotu>
+        </wypozyczenie>
+        <wypozyczenie czytelnik_id="Cx_7252Fd" ksiazka_id="K_22l18">
+            <data_wypozyczenia>2020-02-26</data_wypozyczenia>
+            <data_do>2020-03-27</data_do>
+            <data_zwrotu>2020-03-22</data_zwrotu>
+        </wypozyczenie>
+        <wypozyczenie czytelnik_id="Cx_9241Jl" ksiazka_id="K_92z11">
+            <data_wypozyczenia>2020-03-14</data_wypozyczenia>
+            <data_do>2020-04-15</data_do>
+            <data_zwrotu>2020-05-01</data_zwrotu>
+        </wypozyczenie>
+        
+        
+        <wypozyczenie czytelnik_id="Cl_1724De" ksiazka_id="K_78w89">
+            <data_wypozyczenia>2020-04-05</data_wypozyczenia>
+            <data_do>2020-05-05</data_do>
+            <data_zwrotu>2020-04-28</data_zwrotu>
+        </wypozyczenie>
+        <wypozyczenie czytelnik_id="Cr_7151Kd" ksiazka_id="K_31a11">
+            <data_wypozyczenia>2020-05-01</data_wypozyczenia>
+            <data_do>2020-06-01</data_do>
+        </wypozyczenie>
+        <wypozyczenie czytelnik_id="Cl_1724De" ksiazka_id="K_22l18">
+            <data_wypozyczenia>2020-05-01</data_wypozyczenia>
+            <data_do>2020-06-01</data_do>
+            <data_zwrotu>2020-05-08</data_zwrotu>
+        </wypozyczenie>
+    <wypozyczenie czytelnik_id="Cs_4159Vr" ksiazka_id="K_72v87"><data_wypozyczenia>2020-05-06</data_wypozyczenia><data_do>2020-06-06</data_do></wypozyczenie></wypozyczenia>
+</biblioteka>

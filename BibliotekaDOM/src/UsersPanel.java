@@ -132,7 +132,7 @@ public class UsersPanel extends JPanel {
     }
     public class Add implements ActionListener {
         public void actionPerformed(ActionEvent action) {
-            System.out.println("dodaj");
+            new AddUserWindow(window);
         }
     }
 }
