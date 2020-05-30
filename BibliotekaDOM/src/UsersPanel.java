@@ -85,15 +85,12 @@ public class UsersPanel extends JPanel {
 
         JButton del = new JButton("Usuń");
         del.addActionListener(new Delete());
-        JButton edit = new JButton("Zmień");
-        edit.addActionListener(new Edit());
         JButton add = new JButton("Dodaj");
         add.addActionListener(new Add());
 
         JPanel menu = new JPanel();
         menu.setPreferredSize(new Dimension( 150,window.getHeight()));
         menu.add(add);
-        menu.add(edit);
         menu.add(del);
         menu.setBackground(Color.WHITE);
         add(menu, BorderLayout.EAST);
@@ -131,11 +128,6 @@ public class UsersPanel extends JPanel {
                     }
                 }
             }
-        }
-    }
-    public class Edit implements ActionListener {
-        public void actionPerformed(ActionEvent action) {
-            System.out.println("edytuj");
         }
     }
     public class Add implements ActionListener {

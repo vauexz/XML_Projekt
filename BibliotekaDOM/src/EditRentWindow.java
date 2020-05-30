@@ -121,7 +121,7 @@ public class EditRentWindow extends JFrame {
             int year = Integer.parseInt(rentDateS.substring(0, 4));
             int month = Integer.parseInt(rentDateS.substring(5, 7));
             int day = Integer.parseInt(rentDateS.substring(8, 10));
-            if (returnDateS.charAt(4) != '-' || returnDateS.charAt(7) != '-')
+            if (rentDateS.charAt(4) != '-' || rentDateS.charAt(7) != '-')
                 return false;
             if (year < 1970)
                 return false;
@@ -189,7 +189,7 @@ public class EditRentWindow extends JFrame {
                         NodeList returnNode = rent.getElementsByTagName("data_zwrotu");
                         String returnS = returnDate.getText();
                         if (returnNode.getLength() == 0 && returnS.length() == 0)
-                            ; // nie dodalismy daty ani nie mamy węzła w pliku
+                            ;
                         else if (returnNode.getLength() == 0 && returnS.length() != 0) {
                             Element newDate = BibliotekaDOM.document.createElement("data_zwrotu");
                             newDate.setTextContent(returnS);

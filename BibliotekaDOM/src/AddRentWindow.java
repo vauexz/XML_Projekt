@@ -4,10 +4,8 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import javax.swing.*;
-import javax.xml.stream.events.Attribute;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.beans.BeanInfo;
 
 public class AddRentWindow extends JFrame {
     JFrame me;
@@ -118,7 +116,7 @@ public class AddRentWindow extends JFrame {
             int year = Integer.parseInt(rentDateS.substring(0, 4));
             int month = Integer.parseInt(rentDateS.substring(5, 7));
             int day = Integer.parseInt(rentDateS.substring(8, 10));
-            if (returnDateS.charAt(4) != '-' || returnDateS.charAt(7) != '-')
+            if (rentDateS.charAt(4) != '-' || rentDateS.charAt(7) != '-')
                 return false;
             if (year < 1970)
                 return false;

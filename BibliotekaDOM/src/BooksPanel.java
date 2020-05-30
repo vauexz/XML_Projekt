@@ -4,7 +4,6 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import javax.swing.*;
-import javax.swing.table.TableColumn;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -123,12 +122,20 @@ public class BooksPanel extends JPanel {
     }
     public class Edit implements ActionListener {
         public void actionPerformed(ActionEvent action) {
-            System.out.println("edytuj");
+            int row = table.getSelectedRow();
+            if (row < 0) {
+                JOptionPane.showMessageDialog(window, "Wybierz książkę do zmiany");
+                return;
+            }
+            new AddBookWindow(
+                    window,
+                    table.getValueAt(row, 0).toString()
+            );
         }
     }
     public class Add implements ActionListener {
         public void actionPerformed(ActionEvent action) {
-            System.out.println("dodaj");
+            new AddBookWindow(window);
         }
     }
 }
