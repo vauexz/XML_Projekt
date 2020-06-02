@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class FileChoosePanel extends JPanel {
-    final String inputXSD = "biblioteka.xsd";
+    final String inputXSD = "/home/s_n/Desktop/XML_Projekt/biblioteka.xsd";
     private Window window;
     private static Boolean documentOK = true;
     private JLabel error;
